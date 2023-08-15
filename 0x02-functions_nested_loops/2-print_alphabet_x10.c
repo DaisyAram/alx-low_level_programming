@@ -2,10 +2,11 @@
 
 /**
  * print_alphabet _x10 - Make alphabet x10 times
- * Return: 0 success
+ * Return: void
  */
 
 void print_alphabet_x10(void)
+
 {
 	char c;
 	int i = 0;
