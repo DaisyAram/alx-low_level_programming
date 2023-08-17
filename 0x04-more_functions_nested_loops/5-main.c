@@ -1,4 +1,4 @@
-ginclude "main.h"
+#include "main.h"
 
 /**
  * main - check code
@@ -7,7 +7,6 @@ ginclude "main.h"
  */
 int main(void)
 {
-        more_numbers();
-        return (0);
+	more_numbers();
+	return (0);
 }
-
