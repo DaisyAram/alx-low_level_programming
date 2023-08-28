@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _memset  fills memory with a constant byte
+ * _memset - fills memory with a constant byte
  * @s: starting address of memort to be filled
  * @b: value
  * @n: number of bytes to be changed
