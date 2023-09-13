@@ -3,7 +3,8 @@
 #include "function_pointers.h"
 #include "3-calc.h"
 
-/** main -prints results
+/**
+ * main -prints results
  * @argv: argument vector
  * @agrc: argument count
  * Return: 0
