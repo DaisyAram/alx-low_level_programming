@@ -6,7 +6,7 @@
 /**
  * main -prints results
  * @argv: argument vector
- * @agrc: argument count
+ * @argc: argument count
  * Return: 0
  */
 
