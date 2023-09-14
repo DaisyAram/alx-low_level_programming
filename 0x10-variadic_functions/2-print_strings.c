@@ -6,7 +6,7 @@
  * print_strings - prints strings
  * @separator: string to be printed between numbers
  * @n: number of strings passed to the function
- * Return:
+ * ...: a variable  number of the strings to be printed
  *
  */
 void print_strings(const char *separator, const unsigned int n, ...)
@@ -20,7 +20,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	{
 	s = va_arg(list, char *);
 	if (s == NULL)
-	printf("nil");
+	printf("(ni)l");
 	else
 	printf("%s", s);
 	if (b != (n - 1) && separator != NULL)
