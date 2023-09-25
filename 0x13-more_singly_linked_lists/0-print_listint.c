@@ -9,15 +9,13 @@
 
 size_t print_listint(const listint_t *h)
 {
-	/** initialization of variable to store current node */
-	size_t value = 0;
+	size_t num = 0;/** initialization of variable to store current node */
 
-	/** print data of  current node */
 	while (h)
 	{
 	printf("%d\n", h->n);
-	value++;
+	num++;
 	h = h->next;
 	}
-	return (value);
+	return (num);
 }
