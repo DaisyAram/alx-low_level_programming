@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 /**
- * listint2 - frees a listint_t list
- *
+ * free_listint2 - frees a listint_t list
+ * @head: head of the list
  * Return: nothing
  */
 
