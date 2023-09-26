@@ -5,7 +5,7 @@
  * insert_nodeint_at_index - inserts a new node at a given position
  * @head: head
  * @idx: the index of the list where the new node should be added
- * @n: integer
+ * @n: int data
  * Return: the address of the new node, or NULL if it failed
  */
 
