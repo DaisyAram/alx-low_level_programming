@@ -12,20 +12,20 @@
 listint_t *add_nodeint_end(listint_t **head, const int n)
 {
 	listint_t *new = 0;
-	listint_t *temp = *head; /** temporary head of the new node */
+	listint_t *temp = *head; /** temporary head */
 
 	new = malloc(sizeof(listint_t)); /** memory allocation of the new node */
 
 	if (!new)
 	return (NULL);
 
-	new->n = n;
+	new->n = n; /** assign value to the node */
 
 	new->next = NULL;/** no node after new */
 
 	if (*head == NULL)
 	{
-	*head = new;
+	(*head) = new;
 	return (new);
 	}
 	while (temp->next)
