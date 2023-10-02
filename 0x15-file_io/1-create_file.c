@@ -24,7 +24,7 @@ int create_file(const char *filename, char *text_content)
 	}
 
 	/** open the new file, create,enable permissions and truncate it */
-	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC);
+	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 
 	/** write the file */
 	w = write(fd, text_content, len);
