@@ -22,7 +22,6 @@ int create_file(const char *filename, char *text_content)
 	for (len = 0; text_content[len];)
 	len++;
 	}
-	return (1);
 
 	/** open the new file, create,enable permissions and truncate it */
 	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC);
