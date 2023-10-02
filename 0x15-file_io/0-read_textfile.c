@@ -19,7 +19,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	/** open the file in read mode only */
 	fd = open(filename, O_RDONLY);
-	if (fd == -1)
+	if (fd == -1)/** if err occurs */
 	return (0);
 
 	/**processing - read only permissions */
