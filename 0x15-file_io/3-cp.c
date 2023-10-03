@@ -2,19 +2,19 @@
 
 /**
  * close_file - closes file descriptor
- * @fd: file descriptor
+ * @file: file to close
  *
  * Return: nothing
  */
-void close_file(int fd)
+void close_file(int file)
 {
 	int a;
 
-	a = close(fd);
+	a = close(file);
 
 	if (a == -1)
 	{
-	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
 	exit(100);
 	}
 }
@@ -56,10 +56,9 @@ int main(int argc, char *argv[])
 	exit(97);
 	}
 	file_from = open(argv[1], O_RDONLY);
-	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 664);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	buffer = define_buffer(argv[2]);
 	r = read(file_from, buffer, 1024);
-	w = write(file_to, buffer, r);
 
 	do {
 	if (file_from == -1 || r == -1)
@@ -68,7 +67,7 @@ int main(int argc, char *argv[])
 	free(buffer);
 	exit(98);
 	}
-
+	w = write(file_to, buffer, r);
 	if (file_to == -1 || w == -1)
 	{
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -80,10 +79,8 @@ int main(int argc, char *argv[])
 	file_to = open(argv[2], O_WRONLY | O_APPEND);
 	}
 	while (r > 0);
-	{
 	free(buffer);
 	close(file_from);
 	close(file_to);
 	return (0);
-	}
 }
