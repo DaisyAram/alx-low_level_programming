@@ -1,8 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 
-void close_file(int file);
-char *define_buffer(char *file);
 
 /**
  * close_file - closes file descriptor
