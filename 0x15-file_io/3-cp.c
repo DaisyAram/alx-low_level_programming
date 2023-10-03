@@ -81,8 +81,7 @@ int main(int argc, char *argv[])
 
 	r = read(file_from, buffer, 1024);
 	file_to = open(argv[2], O_WRONLY | O_APPEND);
-	}
-	while (r > 0);
+	} while (r > 0);
 	free(buffer);
 	close(file_from);
 	close(file_to);
