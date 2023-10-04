@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 	r = read(file_from, buffer, 1024);
 	w = write(file_to, buffer, r);
 
-	/** open file_from for reading*/
+	do {
 	if (file_from == -1 || r == -1) /** file doesn't exist or cannot be read */
 	{
 	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
 	r = read(file_from, buffer, 1024);
 	file_to = open(argv[2], O_WRONLY | O_APPEND);
 
-	while (r > 0)
+	} while (r > 0);
 	free(buffer);
 	close(file_from);
 	close(file_to);
