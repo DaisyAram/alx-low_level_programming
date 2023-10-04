@@ -61,7 +61,6 @@ int main(int argc, char *argv[])
 	buffer = define_buffer(argv[2]);
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	file_from = open(argv[1], O_RDONLY);
-	r = read(file_from, buffer, 1024);
 
 	do {
 	if (file_from == -1 || r == -1) /** file doesn't exist or cannot be read */
