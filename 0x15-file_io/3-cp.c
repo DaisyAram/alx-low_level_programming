@@ -3,7 +3,7 @@
 
 
 /**
- * close_file - closes file descriptor
+ * close_file - closes file
  * @file: file to close
  *
  * Return: nothing
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 	int file_from, file_to, w, r;
 	char *buffer;
 
-	if (argc != 3)
+	if (argc != 3)/** if the number of arguments is not correct */
 	{
 	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 	exit(97);
@@ -63,14 +63,14 @@ int main(int argc, char *argv[])
 	r = read(file_from, buffer, 1024);
 
 	do {
-	if (file_from == -1 || r == -1)
+	if (file_from == -1 || r == -1) /** file doesn't exist or cannot be read */
 	{
 	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 	free(buffer);
 	exit(98);
 	}
 	w = write(file_to, buffer, r);
-	if (file_to == -1 || w == -1)
+	if (file_to == -1 || w == -1) /** cannot create a file or write to the file */
 	{
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 	free(buffer);
@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
 
 	r = read(file_from, buffer, 1024);
 	file_to = open(argv[2], O_WRONLY | O_APPEND);
-	} while (r > 0);
+	} while (r > 0); /** free buffer and close both files */
 	free(buffer);
 	close(file_from);
 	close(file_to);
