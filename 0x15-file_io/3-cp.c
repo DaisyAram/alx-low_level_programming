@@ -4,7 +4,7 @@
 
 /**
  * close_file - closes file
- * @fd: file descriptor
+ * @file: file descriptor
  *
  * Return: nothing
  */
@@ -62,7 +62,6 @@ int main(int argc, char *argv[])
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	file_from = open(argv[1], O_RDONLY);
 	r = read(file_from, buffer, 1024);
-	w = write(file_to, buffer, r);
 
 	do {
 	if (file_from == -1 || r == -1) /** file doesn't exist or cannot be read */
