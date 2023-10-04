@@ -8,15 +8,15 @@
  *
  * Return: nothing
  */
-void close_file(int fd)
+void close_file(int file)
 {
 	int a;
 
-	a = close(fd);
+	a = close(file);
 
 	if (a == -1)
 	{
-	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
 	exit(100);
 	}
 }
