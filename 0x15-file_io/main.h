@@ -18,6 +18,6 @@ int main(int argc, char *argv[]);
 
 char *define_buffer(char *file);
 
-void close_file(int file);
+void close_file(int fd);
 
 #endif

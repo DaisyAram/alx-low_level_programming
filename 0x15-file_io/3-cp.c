@@ -4,19 +4,19 @@
 
 /**
  * close_file - closes file
- * @file: file to close
+ * @fd: file descriptor
  *
  * Return: nothing
  */
-void close_file(int file)
+void close_file(int fd)
 {
 	int a;
 
-	a = close(file);
+	a = close(fd);
 
 	if (a == -1)
 	{
-	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
+	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 	exit(100);
 	}
 }
@@ -52,23 +52,26 @@ int main(int argc, char *argv[])
 	int file_from, file_to, w, r;
 	char *buffer;
 
-	if (argc != 3)/** if the number of arguments is not correct */
+	if (argc != 3)/** number of arguments is not correct */
 	{
 	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 	exit(97);
 	}
-	file_from = open(argv[1], O_RDONLY);
-	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	buffer = define_buffer(argv[2]);
-	r = read(file_from, buffer, 1024);
 
-	do {
+	buffer = define_buffer(argv[2]);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	file_from = open(argv[1], O_RDONLY);
+	r = read(file_from, buffer, 1024);
+	w = write(file_to, buffer, r);
+
+	/** open file_from for reading*/
 	if (file_from == -1 || r == -1) /** file doesn't exist or cannot be read */
 	{
 	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 	free(buffer);
 	exit(98);
 	}
+	/** open/creat file_to write to and truncate it*/
 	w = write(file_to, buffer, r);
 	if (file_to == -1 || w == -1) /** cannot create a file or write to the file */
 	{
@@ -79,7 +82,8 @@ int main(int argc, char *argv[])
 
 	r = read(file_from, buffer, 1024);
 	file_to = open(argv[2], O_WRONLY | O_APPEND);
-	} while (r > 0); /** free buffer and close both files */
+
+	while (r > 0)
 	free(buffer);
 	close(file_from);
 	close(file_to);
