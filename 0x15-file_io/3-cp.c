@@ -43,7 +43,7 @@ char *define_buffer(char *file)
 }
 
 /**
- * main - copies contes of a file to another
+ * main - checks the code
  * @ac: argument count
  * @av: argument vector
  *
