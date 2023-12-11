@@ -1,0 +1,3 @@
+**print_version-PrintstheversionofanELFheader.
+**@e_ident:ApointertoanarraycontainingtheELFversion.
+**/
