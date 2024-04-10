@@ -47,7 +47,4 @@ typedef struct skiplist_s
 	struct skiplist_s *express;
 } skiplist_t;
 skiplist_t *linear_skip(skiplist_t *list, int value);
-
-size_t min(size_t x, size_t y);
-
 #endif
